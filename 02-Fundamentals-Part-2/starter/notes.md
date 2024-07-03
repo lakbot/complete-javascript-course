@@ -46,5 +46,8 @@ The for Loop
 - Loops are a control structure
 - when we loop over an array, it looks the same for all arrays
 
-Looping arrays, breaking, continuing
-- 
+Looping arrays, breaking, continuing - no notes
+
+The while loop
+- While loop does not need a counter
+- Normally we use this when you do not know how many interations the loop will have

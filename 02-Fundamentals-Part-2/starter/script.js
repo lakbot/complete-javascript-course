@@ -404,7 +404,9 @@ for (let i = 0; i < jonas.length; i++) {
 }
 */
 
+/*
 //Looping Backwards and Loops in Loops
+// Looping backwards
 const jonas = [
   "Jonas",
   "Smith",
@@ -415,5 +417,68 @@ const jonas = [
 ];
 
 for (let i = jonas.length - 1; i >= 0; i--) {
-  console.log(jonas[i]);
+  console.log(i, jonas[i]);
 }
+
+// Loops in loops
+for (let exercise = 1; exercise < 4; exercise++) {
+  console.log(`-------Starting exercise ${exercise}`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${exercise} Lifting weight repetition ${rep} 🏋️`);
+  }
+}
+*/
+
+/*
+// The while loop
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repitition ${rep}`);
+// }
+
+let rep = 1;
+while (rep <= 10) {
+  // console.log(`Lifting weights repitition ${rep}`);
+  rep++;
+}
+
+// Math.trunc will remove the decimal
+// Math.random will generate a random number between 0 and 1
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) {
+    console.log("Loop is about to end...");
+  }
+}
+*/
+
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+/* Write your code below. Good luck! 🙂 */
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+for (let i = 0; i < bills.length; i++) {
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(bills[i] + tip);
+}
+
+console.log(bills, tips, totals);
+
+const calcAverage = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+};
+
+console.log(calcAverage(totals));

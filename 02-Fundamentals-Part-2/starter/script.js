@@ -40,6 +40,7 @@ const appleOrangeJuice = fruitProcessor(2, 4);
 console.log(appleOrangeJuice);
 
 const num = Number("23");
+console.log(typeof num);
 */
 
 /*
@@ -145,7 +146,7 @@ console.log(friends[friends.length - 1]);
 friends[2] = "Jay";
 console.log(friends);
 // below is illegal
-// friend = ['bob', 'Alice];
+// friends = ['bob', 'Alice];
 
 const firstName = "Jonas";
 const jonas = [firstName, "William", 2037 - 1991, "teacher", friends];

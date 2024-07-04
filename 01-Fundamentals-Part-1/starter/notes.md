@@ -25,7 +25,7 @@ let children;
 
 let, const, var
 - let, const were introduced in ES6
-- var is old way of declaring variables
+- var is old way of declaring variables and it allows you to declare a variable with the same name twice, which is an issue
 - reassign variables also known as mutate variables. let is mutable. const is immutable.
 - cannot declare empty const
 - it is best practise to use const all the time. Use let only when you know the variable is going to change. it is good practise to have as little variable mutations as possible. 

@@ -38,6 +38,8 @@ Operator Precendence
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_precedence#table
 
 Strings and Template Literals
+- In JavaScript, you can escape a quote from considering it as an end of string quote by placing a backslash (\) in front of the quote.
+ex: const sampleStr = "Alan said, \"Peter is learning JavaScript\".";
 - Template Literals is an ES6 feature
 
 If /else

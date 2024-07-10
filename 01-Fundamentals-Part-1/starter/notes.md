@@ -18,7 +18,7 @@ let lastName = "Smith";
 let fullAge = true;
 // Undefined - when we declare an empty variable, the value and type of value will be undefined
 let children;
-// Null - null is similar to undefined . Both value and type of value will be undefined. console.log(typeof null) will output "object" which is regarded as a bug. This was never corrected for legacy reasons.
+// Null - null is similar to undefined . Both value and type of value will be null. console.log(typeof null) will output "object" which is regarded as a bug. This was never corrected for legacy reasons.
 // Symbol - introduced in ES2015 and not useful now
 // BigInt - introduced in ES2020 - larger integers which can hold more than Number type
 - JS has dynamic typing. We do not have to manually define the data type of the value stored in a variable. Instead, data types are determined automatically.
@@ -96,7 +96,7 @@ Conditional (Ternary) Operator
 - Operator always produces a value
 - therefore this is an expression
 - this operator can be used to conditionally declare variables
-- since it is an expression, ternary operator can be used inisde a template literal
+- since it is an expression, ternary operator can be used inside a template literal
 
 Javascript releases: ES5, ES6+ and ESNext
 - all ES versions are backwards compatible. They are not forward compatible (New JS will not run in old browser)

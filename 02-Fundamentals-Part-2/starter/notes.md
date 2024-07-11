@@ -33,7 +33,7 @@ Basic Array Operations (Methods)- no notes
 
 Introduction to Objects
 - Objects have key (property), value pairs
-- arrays should be used for orderd data and objects should be used for unstructured data
+- arrays should be used for ordered data and objects should be used for unstructured data
 
 Dot vs Bracket Notation
 - Multiple dots are executed from left to right

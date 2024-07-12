@@ -9,6 +9,9 @@ DOM - Document Object Model
 
 Event Listener
 - An event is something that happens on the page. ex: mouse click, mouse moving, key press
+ 
+Obtaining the score value can be done using DOM also but it is better to initialize a value inside the JS, then this becomes a state variable. All the data should be available inside the JS code.
+
 
 
 

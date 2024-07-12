@@ -177,6 +177,8 @@ const friends = ["Michael", "Steven", "Peter"];
 // here push is a method/ function
 friends.push("Jay");
 console.log(friends);
+// It is possible to push multiple elements
+friends.push("Jay","Kate","William");
 // .push will return the length of the new array
 const newLength = friends.push("Jason");
 console.log(friends);

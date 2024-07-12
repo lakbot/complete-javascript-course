@@ -23,6 +23,7 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 // start with 20 as the initial score
 let score = 20;
+let highScore = 0;
 
 // addEventListener method attaches an event handler with a function () value. This function will not load when JS loads but rather only when the event happens
 // 'click' is the name of the event we are listening for
@@ -44,6 +45,11 @@ document.querySelector('.check').addEventListener('click', function () {
     // When manipulating a style, always need to specify a string. this will be inline style
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
+    // set high score
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').textContent = highScore;
+    }
     // when guess is too high
   } else if (guess > secretNumber) {
     if (score > 1) {

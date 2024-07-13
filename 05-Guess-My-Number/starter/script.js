@@ -25,6 +25,11 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
 
+// introduce function to refactor the code
+const displayMessage = function (message) {
+  document.querySelector('.message').textContent = message;
+};
+
 // addEventListener method attaches an event handler with a function () value. This function will not load when JS loads but rather only when the event happens
 // 'click' is the name of the event we are listening for
 document.querySelector('.check').addEventListener('click', function () {
@@ -35,10 +40,12 @@ document.querySelector('.check').addEventListener('click', function () {
 
   // first scenario is to assume there is no input
   if (!guess) {
-    document.querySelector('.message').textContent = '⛔No number!';
+    // document.querySelector('.message').textContent = '⛔No number!';
+    displayMessage('⛔No number!');
     // when player wins
   } else if (guess === secretNumber) {
-    document.querySelector('.message').textContent = '🎉Correct Number!';
+    // document.querySelector('.message').textContent = '🎉Correct Number!';
+    displayMessage('🎉Correct Number!');
     document.querySelector('.number').textContent = secretNumber;
     // In JS, background-color will be backgroundColor
     // Same applies to all other properties with multiple words
@@ -50,27 +57,44 @@ document.querySelector('.check').addEventListener('click', function () {
       highScore = score;
       document.querySelector('.highscore').textContent = highScore;
     }
-    // when guess is too high
-  } else if (guess > secretNumber) {
+    // the below is refactored with the use of ternary operator
+    // when guess is wrong
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = '📈Too high!';
+      // document.querySelector('.message').textContent =
+      //   guess > secretNumber ? '📈Too high!' : '📉Too low!';
+      displayMessage(guess > secretNumber ? '📈Too high!' : '📉Too low!');
       score--;
       document.querySelector('.score').textContent = score;
     } else {
-      document.querySelector('.message').textContent = '💥you lost the game!';
-      document.querySelector('.score').textContent = 0;
-    }
-    // when guess is too low
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = '📉Too low!';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = '💥you lost the game!';
+      // document.querySelector('.message').textContent = '💥you lost the game!';
+      displayMessage('💥you lost the game!');
       document.querySelector('.score').textContent = 0;
     }
   }
+
+  //the below is commented because we have refactored our code
+  // when guess is too high
+  // else if (guess > secretNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.message').textContent = '📈Too high!';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = '💥you lost the game!';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+  //   // when guess is too low
+  // } else if (guess < secretNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.message').textContent = '📉Too low!';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = '💥you lost the game!';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+  // }
 });
 
 ///////////////////////////////////////////
@@ -90,7 +114,8 @@ GOOD LUCK 😊
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
-  document.querySelector('.message').textContent = 'Start guessing...';
+  // document.querySelector('.message').textContent = 'Start guessing...';
+  displayMessage('Start guessing...');
   document.querySelector('.number').textContent = '?';
   document.querySelector('.score').textContent = score;
   document.querySelector('.guess').value = '';

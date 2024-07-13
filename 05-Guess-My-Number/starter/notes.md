@@ -12,7 +12,7 @@ Event Listener
  
 Obtaining the score value can be done using DOM also but it is better to initialize a value inside the JS, then this becomes a state variable. All the data should be available inside the JS code.
 
-
+Code is refactored using ternary operator, functions and combining <, > into a !==
 
 
 

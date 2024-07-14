@@ -165,3 +165,8 @@ main {
   font-weight: 700;
   color: #c7365f;
 }
+
+/* specify hidden class explicitly*/
+.hidden {
+  display: none;
+}

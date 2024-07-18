@@ -63,3 +63,52 @@ The JS Engine and Runtime
   - web apis are functionalities provided to the engine (accessible on window object), but which are actually not part of JS language
   - Callback queue is a data structure that contains all the callback functions that are ready to be executed. for example: callback function from DOM event listener. when call stack is empty, callback function is passed on to the stack to be executed. Event loop takes callback functions from callback queue and puts them into call stack to be executed.
 
+Execution Contexts and the Call Stack
+
+- After compiling, it is ready to be executed.
+  - Here a global execution context is created for top-level code. Top-level code is code which is not inside a function. 
+  - Execution context is an environment in which a piece of JS is executed. Stores all the necessary information for some code to be executed (contains local variables, arguments passed into a function, etc). 
+  - JS code always run inside an execution context
+  - Exactly one global execution context is there. Default context, created for code that is not inside any function (top-level)
+  - after execution of top-level code inside global EC, execution of functions will be done along with waiting for callbacks
+  - For each and every function call, a new execution context will be created. Same is for methods
+  - All the execution context together makes up the call stack
+  - What's inside execution context?
+    - Variable Environment
+      - let, const, var declarations
+      - Functions 
+      - arguments object
+    - Scope chain: consists of reference to variables located outside of the current function. To keep track of scope chain, it is stored in each execution context.
+    - Each context gets a special variable called this keyword
+  - The above 3 are generated during creation phase, right before execution
+  - Execution contexts belonging to arrow functions do not get their own arguments object and this keyword
+    - Instead they can use arguments object and this keyword from their closest regular function parent
+  - Technically, values only become known during execution
+- Call stack is a "place" where execution contexts get stacked on top of each other, to keep track of where we are in the execution
+
+Scope and Scope Chain
+
+- Scoping: How our program's variables are organized and accessed. "Where do variables live? or "Where can we access a certain variable, and where not?"
+- Lexical scoping: Scoping is controlled by placement of functions and blocks in the code
+- Scope: Space or environment in which a certain variable is declared (variable environment in case of functions). There is global scope, function scope and block scope
+- Scope of a variable: Region of our code where a certain variable can be accessed 
+- 3 Types of scope
+  - Global scope 
+    - Outside of any function or block
+    - Variables declared in global scope are accessible everywhere
+  - Function scope
+    - Variables are accessible only inside function, Not outside
+    - Also called local scope
+    - var is function-scoped
+  - Block scope (ES6)
+    - For example: if, for loop, while loop, etc.
+    - Variables are accessible only inside block (block scoped)
+    - However, this only applies to let and const variables
+    - Functions are also block scoped (only in strict mode)
+- Scope Chain
+  - Scope has access to variables from all outer scopes. This applies to function arguments as well.
+  - scopes looking for variables in outer parent scopes are called as variable lookup in scope chain
+  - Sibling scopes cannot have access to each other's variables. Such as in the slide the if purple scope and second() function scope
+  - The scope chain has nothing to do with the order in which functions were called
+ 
+

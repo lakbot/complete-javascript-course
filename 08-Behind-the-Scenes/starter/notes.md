@@ -111,4 +111,48 @@ Scope and Scope Chain
   - Sibling scopes cannot have access to each other's variables. Such as in the slide the if purple scope and second() function scope
   - The scope chain has nothing to do with the order in which functions were called
  
+Variable Environment: Hoisting and the TDZ
+
+- Hoisting: Makes some types of variables accessible/ usable in the code before they are actually declared. "Variables lifted to the top of their scope".
+- Before execution, code is scanned for variable declarations, and for each variable, a new property is created in the variable environment object.
+  - Function declarations are hoisted and the initial value is the actual function
+  - var variables are hoisted and the initial value is undefined. This means eventhough a var varible is initialized down below the code, when we try to access above it, it throws undefined
+  - let and const variables are not hoisted. This means when they are initialized down below the code, and when we try to access them above it, there value is uninitialzed. We say these values are placed in a TDZ (temporal dead zone). So we get an error
+  - Function expressions and arrows depends on if using var or let/const. Therefore same rules apply as above.
+- Temporal Dead Zone, Let and Const
+  - if variable used before initialized, it will throw "ReferenceError: Cannot access '<variable_name>' before initialization"
+  - if variable is not declared/ initialized. it will throw "ReferenceError: '<variable_name>' is not defined
+  - Why TDZ?
+    - Makes it easier to avoid and catch errors: accessing variables before declaration is bad practise and should be avoided
+    - Makes const variables actually work
+- Why hoisting?
+  - Using functions before actual declaration 
+  - var hoisting is just a byproduct
+
+The this keyword
+- this keyword/ variable: Special variable that is created for every execution context (every function). Takes th value of (point to) the "Owner" of the function in which the `this` keyword is used.
+- `this` is NOT static. It depends on how the function is called, and its value is only assigned when the function is actually called.
+  - Method: this = <Object that is calling the method>
+  - Simple function call: this = undefined. Only in strict mode. Otherwise, will be in the window object
+  - Arrow functions: this = <this of surrounding function (lexical this)>. Arrow functions do not get their own this but rather the parent function (parent scope) of it.
+  - Event Listener: this = <DOM element that the handler is attached to>
+- `this` does not point to the function itself, and also not its variable environment
+
+Regular functions vs Arrow functions
+- variables declared with `var` creates a property on the global window object
+
+Primitives vs objects
+- Primitives are called primitive types
+  - Number, String, Boolean, Undefined, Null, Symbol, BigInt
+  - Primitives are stoed in execution context of CALL STACK
+  - variables point to memory address which hold the value
+    - value at a certain address is immutable
+- Objects are called reference types
+  - Object literal, Arrays, Functions
+  - Objects are stored in the HEAP of JS Engine
+  - variable point to memory address which hold a reference to memory address in HEAP
+- Topics for later
+  - Prototypal Inheritance: Object Oriented Programming (OOP) with JS
+  - Event Loop: Asynchronous JS: Promises, Async/ Await and AJAX
+  - How the DOM Really Works: Advanced DOM and Events
 

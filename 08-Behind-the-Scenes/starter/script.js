@@ -204,6 +204,7 @@ addArrow(2, 5, 8);
 // arguments keywords are not used in modern JS. We will talk later about this
 */
 
+/*
 // Primitives vs objects
 let age = 30;
 let oldAge = age;
@@ -242,3 +243,4 @@ jessicaCopy.family.push('John');
 
 console.log(jessica);
 console.log(jessicaCopy);
+*/

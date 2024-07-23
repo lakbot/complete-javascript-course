@@ -223,6 +223,7 @@ const books = [
   },
 ];
 
+/*
 // Destructuring Arrays
 //1,1
 const [firstBook, secondBook] = books;
@@ -237,3 +238,4 @@ const [[, rating], [, ratingsCount]] = ratings;
 //1.4
 const ratingStars = [63405, 1808];
 const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
+*/

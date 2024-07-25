@@ -25,6 +25,17 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  // destructure inside a function
+  // defaults can be set here as well
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(starterIndex, mainIndex, time, address);
+  },
 };
 
 /*
@@ -73,6 +84,7 @@ const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
 */
 
+/*
 // Destructuring Objects
 const { name, openingHours, categories } = restaurant;
 console.log(name, openingHours, categories);
@@ -89,6 +101,35 @@ console.log(restaurantName, hours, tags);
 // without default, if property does not exist, it will output "undefined"
 const { menu = [], starterMenu: starters = [] } = restaurant;
 console.log(menu, starters);
+
+// Mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+// the below will give syntax error because if we start with paranthesis, JS expects a code block. So here we cannot assign anything to a code block
+// {a,b} = obj;
+// the below can fix it
+({ a, b } = obj);
+console.log(a, b);
+
+// Nested objects
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
+
+// Pass arguments as an object inside method (function invocation) so that it can be destructured inside the function definition up above
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'New Street',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+*/
+
+// The Spread Operator
+const arr = [7, 8, 9];
+
 
 // Data needed for a later exercise
 const flights =

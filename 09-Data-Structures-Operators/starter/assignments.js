@@ -240,6 +240,7 @@ const ratingStars = [63405, 1808];
 const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
 */
 
+/*
 // Destructuring Objects
 // 2.1
 // const { title, author, ISBN } = books[0];
@@ -269,3 +270,4 @@ printBookInfo({
 });
 
 printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
+*/

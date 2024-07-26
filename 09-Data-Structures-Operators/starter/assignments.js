@@ -271,3 +271,15 @@ printBookInfo({
 
 printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
 */
+
+/*
+// The Spread Operator
+// 3.1
+const bookAuthors = [...books[0].author, ...books[1].author];
+console.log(bookAuthors);
+// 3.2
+const spellWord = function (str) {
+  console.log(...str);
+};
+spellWord('JavaScript')
+*/

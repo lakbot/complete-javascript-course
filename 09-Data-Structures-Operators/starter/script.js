@@ -42,6 +42,11 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 /*
@@ -185,6 +190,180 @@ restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
 */
+
+/*
+// Rest Pattern and Parameters
+// 1) Destructuring
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+// REST, because of LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+// Combine spread and rest
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+// it also works in objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 4, 5);
+add(3, 6, 7, 8, 9, 2);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onions', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
+*/
+
+/*
+// Short Circuiting (&& and ||)
+// || operator
+console.log('----OR----');
+// if first operand is truthy, it will return that value
+// here short-circuit happens where if first operand is truthy, it will not look at second operand
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+// if restaurant.numGuests = 0, the below 2 will not work becauseit a falsy value
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+// the above can be done using short-circuiting and || operator
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+// && operator
+console.log('----AND----');
+// if first operand is falsy, it will return that value
+// here short-circuit happens where if first operand is falsy, it will not look at second operand
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+
+console.log('Hello' && 23 && null && 'jonas');
+
+if (restaurant.orderPizza) {
+  restaurant.order('mushrooms', 'spinach');
+}
+// replace above with &&
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+*/
+
+/*
+// Nullish Coalescing Operator
+restaurant.numGuests = 0;
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+// this works with the concept of Nullish values: null and undefined. Does not include 0 or ''
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+*/
+
+/*
+// Logical Assignment Operators
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// OR assignment operator
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// Nullish assignment operator (null or undefined)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// rest1.owner = rest1.owner && '<ANONMOUS>';
+// rest2.owner = rest2.owner && '<ANONMOUS>';
+// AND assignment operator
+// Assign a value to a variable if it is truthy. here when rest1.owner is undefined, it will skip it. But above, it output as undefined.
+rest1.owner &&= '<ANONMOUS>';
+rest2.owner &&= '<ANONMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+*/
+
+// Coding Challenge #1
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [players1, players2] = game.players;
+const [gk, ...fieldPlayers] = players1;
+const allPlayers = [...players1, ...players2];
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+const { team1, x: draw, team2 } = game.odds;
+// method 2
+// const {odds : {team1, x: draw, team2}} = game;
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored`);
+};
+printGoals(...game.scored);
+team1 < team2 && console.log(`team 1 will win`);
+team1 > team2 && console.log(`team 2 will win`);
 
 
 

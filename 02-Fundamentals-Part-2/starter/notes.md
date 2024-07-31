@@ -1,6 +1,6 @@
 Activating Strict Mode
 - It is a special mode that you can activate in JS which makes it easier for us to write secure JS code
-- strict mode forbids us to do certian things
+- strict mode forbids us to do certain things
 - strict mode will show visible errors. without this mode, it will fail silently
 - it can catch undefined variables
 - it can catch keywords in JS that are reserved for future implementations

@@ -1,5 +1,23 @@
 'use strict';
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+const openingHours = {
+  // compute property names
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -7,22 +25,14 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // open 24 hours
-      close: 24,
-    },
-  },
 
-  order: function (starterIndex, mainIndex) {
+  // ES6 enhanced object literals
+  openingHours,
+  // the above before ES6 was
+  // openingHours: openingHours,
+
+  // new way of writing methods according to ES6
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
@@ -309,64 +319,134 @@ console.log(rest1);
 console.log(rest2);
 */
 
-// Coding Challenge #1
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
+/*
+// Looping Arrays: The for-of Loop
+// loop over the entire array
+// for-of loop allows for continue and break
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+// get the current index as well
+for (const item of menu.entries()) {
+  // console.log(item);
+  console.log(`${item[0] + 1}: ${item[1]}`);
+}
+// the above can be re-written using destructuring
+for (const [i, el] of menu.entries()) {
+  // console.log(item);
+  console.log(`${i + 1}: ${el}`);
+}
+
+// console.log([...menu.entries()]);
+*/
+
+/*
+// Enhanced Object Literals
+// 1. Writing objects inside objects. It can be seen at the very top of this code
+// 2. Writing methods. It can be seen at the very top of this code
+// 3. Property names can be computed. It can be seen at the very top of this code
+*/
+
+/*
+// Optional Chaining (?.)
+// without optional chaining
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
+}
+// console.log(restaurant.openingHours.mon.open);
+
+// with optional chaining
+// only if the property before the question mark exists (mon), then the open property will be read from there. If not, undefined will be returned immediately. Exists here means the nullish concept (not null, not undefined)
+console.log(restaurant.openingHours.mon?.open);
+
+// can have multiple optional chainings
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+// loop over array and check whether restaurant is closed or open on each of the days
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// optional chaining on methods
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// optional chaining on arrays
+// use to check whether an array is empty
+const users = [
+  {
+    name: 'Jonas',
+    email: 'hello@jonas.io',
   },
-};
+];
+console.log(users[0]?.name ?? 'User array is empty');
+*/
 
-const [players1, players2] = game.players;
-const [gk, ...fieldPlayers] = players1;
-const allPlayers = [...players1, ...players2];
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-const { team1, x: draw, team2 } = game.odds;
-// method 2
-// const {odds : {team1, x: draw, team2}} = game;
-const printGoals = function (...players) {
-  console.log(`${players.length} goals were scored`);
-};
-printGoals(...game.scored);
-team1 < team2 && console.log(`team 1 will win`);
-team1 > team2 && console.log(`team 2 will win`);
+/*
+// Looping Objects: Object Keys, Values, Entries
+// property names
+const properties = Object.keys(openingHours);
+console.log(properties);
 
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
 
+// property values
+const values = Object.values(openingHours);
+console.log(values);
 
-// // Data needed for a later exercise
-// const flights =
-//   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+// Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+console.log('---ENTRIES---');
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+*/
+
+/*
+// Sets
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet);
+// string with sets - since strings are Iterables
+console.log(new Set('Jonas'));
+// set can be empty
+console.log(new Set());
+// size of set
+console.log(ordersSet.size);
+// check if element is in the set
+// similar to includes method in arrays
+console.log(ordersSet.has('Pizza'));
+// add element to set
+ordersSet.add('Garlic Bread');
+// delete element from set
+ordersSet.delete('Risotto');
+// delete all elements of the set
+// ordersSet.clear();
+// sets are Iterables and therefore we can loop over them
+for (const order of ordersSet) {
+  console.log(order);
+}
+// Example- remove duplicates of arrays
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// convert from set to array 
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+// oiutput number of letters in a string
+console.log(new Set('jonasteacher').size);
+*/

@@ -42,8 +42,9 @@ Strings and Template Literals
 ex: const sampleStr = "Alan said, \"Peter is learning JavaScript\".";
 - Template Literals is an ES6 feature
 
-If /else
 - Add emoji inside the string with (windows + period)
+
+If /else
 - This is called an if/else control structure because this structure allows us to have more control rather than linear flow of code
 - else is optional. When "if" is false, it will just skip the code block
 
@@ -66,9 +67,9 @@ Equality Operators
 - Better to use strict equality operator always
 
 Boolean Logic
-- AND : true when ALL are true, no matter how many variables
-- OR : true when ONE is true
-- NOT : inverts true/ false
+- AND - && : true when ALL are true, no matter how many variables
+- OR - || : true when ONE is true
+- NOT - ! : inverts true/ false
 - NOT will have high precedence than AND, OR
 
 Logical Operators - no notes

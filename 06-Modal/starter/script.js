@@ -37,7 +37,7 @@ overlay.addEventListener('click', closeModel);
 // when an event happens, we can have access to the info of that event (event object) in the event handler function
 // e will be an event object as an argument to the function
 document.addEventListener('keydown', function (e) {
-  // console.log(e.key);
+  console.log(e.key);
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeModel();
   }

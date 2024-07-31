@@ -335,3 +335,122 @@ for (let i = 0; i < books.length; i++) {
   books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
 }
 */
+
+/*
+// Looping Arrays: The for-of Loop
+// 8.1
+let pageSum = 0;
+for (const { pages } of books) {
+  pageSum += pages;
+}
+console.log(pageSum);
+
+// 8.2
+const allAuthors = [];
+for (const book of books) {
+  // console.log(book.author);
+  if (typeof book.author === 'string') {
+    allAuthors.push(book.author);
+  } else {
+    allAuthors.push(...book.author);
+  }
+}
+console.log(allAuthors);
+// alternative solution (solution from Jonas)
+// for (const book of books) {
+//   if (typeof book.author === 'string') {
+//     allAuthors.push(book.author)
+//   } else {
+//     for (const author of book.author) {
+//       allAuthors.push(author);
+//     }
+//   }
+// }
+
+// 8.3
+for (const [i, el] of allAuthors.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+*/
+
+/*
+// Enhanced Object Literals
+// 9.1
+const bookData = [
+  ['title', 'Computer Networking: A Top-Down Approach'],
+  ['author', ['James F. Kurose', 'Keith W. Ross']],
+  ['publisher', 'Addison Wesley'],
+];
+
+// Do the rest
+const newBook = {
+  [bookData[0][0]]: bookData[0][1],
+  // ...
+  [bookData[1][0]]: bookData[1][1],
+  [bookData[2][0]]: bookData[2][1],
+};
+
+// 9.2
+const pages = 880;
+
+const newBook2 = {
+  title: 'The C Programming Language',
+  author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
+  // ...
+  pages,
+};
+*/
+
+/*
+// Optional Chaining (?.)
+// 10.1
+const getFirstKeyword = function (book) {
+  return book.keywords?.[0];
+};
+*/
+
+/*
+// Looping Objects: Object Keys, Values, Entries
+// 11.1
+const entries = [];
+
+for (const key of Object.keys(books[0].thirdParty.goodreads)) {
+  entries.push([key]);
+}
+
+console.log(entries);
+
+// 11.2
+for (const [index, value] of Object.values(
+  books[0].thirdParty.goodreads
+).entries()) {
+  entries[index].push(value);
+}
+
+console.log(entries);
+
+// 11.3
+const entries2 = Object.entries(books[0].thirdParty.goodreads);
+
+console.log(entries2);
+*/
+
+// Sets
+// 12.1
+const allKeywords = [];
+
+for (const book of books) {
+  allKeywords.push(...book.keywords);
+}
+console.log(allKeywords);
+// 12.2
+const uniqueKeywords = new Set(allKeywords);
+// 12.3
+uniqueKeywords.add('coding');
+uniqueKeywords.add('science');
+// 12.4
+uniqueKeywords.delete('business');
+// 12.5
+const uniqueKeywordsArr = [...uniqueKeywords];
+// 12.6
+uniqueKeywords.clear();

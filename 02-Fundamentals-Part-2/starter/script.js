@@ -1,8 +1,9 @@
-/*
 // Activating Strict Mode
 // this should be the topmost line in the file to work
+
 'use strict';
 
+/*
 let hasDriversLicense = false;
 const passTest = true;
 

@@ -26,3 +26,27 @@ Nullish Coalescing Operator
 
 Logical Assignment Operators
 - This was introduced in ES2021
+
+Looping Arrays: The for-of Loop
+- This was introduced in ES6
+
+Enhanced Object Literals
+- This was introduced in ES6
+
+Optional Chaining (?.)
+- This was introduced in ES2020
+- If a certain property does not exist, undefined is returned immediately
+
+Looping Objects: Object Keys, Values, Entries
+
+Sets
+- ES6 introduced this data structure
+- Set is a collection of unique values
+- Cannot have duplicates
+- Set can hold mix data types
+- Sets are Iterables
+- order of elements in a set is irrelavant
+- there are no indexes in sets
+- If all values are unique and order doesnt matter, there is no need to retrieve values from a set. We just need to know whether a certain element is included in a set
+- Main usecase of sets is remove duplicate values of arrays
+- sets are not intended to replace arrays

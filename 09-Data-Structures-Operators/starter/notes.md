@@ -50,3 +50,15 @@ Sets
 - If all values are unique and order doesnt matter, there is no need to retrieve values from a set. We just need to know whether a certain element is included in a set
 - Main usecase of sets is remove duplicate values of arrays
 - sets are not intended to replace arrays
+
+Maps: Fundamentals
+- It is a data structure which can be used to map values to keys
+- Different with object is, in maps, the keys can have any type
+
+Maps: Iteration - no notes
+
+Summary: Which data structure to use?
+- Collections of data is stored in data structures
+- Creating an array of objects is common in JS
+
+

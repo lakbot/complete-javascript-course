@@ -532,3 +532,122 @@ console.log([...question]);
 console.log([...question.keys()]);
 console.log([...question.values()]);
 */
+
+/*
+// Working with Strings - Part 1
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+// getting a character at a specific position
+console.log(plane[1]);
+console.log('B737'[0]);
+// getting length of string
+console.log(airline.length);
+console.log('B737'.length);
+// methods in strings
+// methods will not change the original string because strings are immutable
+// below is case-sensitive
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'));
+// extract part of string
+// pass in begin parameter for extraction
+// result is called a substring
+console.log(airline.slice(4));
+// 7 is excluding
+// length of exteracted string = end - beginning = 7-4
+console.log(airline.slice(4, 7));
+// extract strings without knowing the lengths
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// start extracting from the end
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+// exercise
+// receives an airplane seat and logs whether it is middle seat or not. Here we consider B and E as middle seats in a 6 seats in a row airplane
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E'){
+    console.log("You got the middle seat 😬");
+  }
+  else console.log('You got lucky 😎');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+// below is boxing
+console.log(new String('jonas'));
+console.log(typeof new String('jonas'));
+
+console.log(typeof new String('jonas').slice(1));
+*/
+
+/*
+// Working with Strings - Part 2
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+console.log('jonas'.toUpperCase());
+
+// Fix capitalization in name
+const passenger = 'jOnAs';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// comparing emails
+const email = 'hello@jonas.io';
+// \n is an enter character
+const loginEmail = '  Hello@Jonas.Io \n';
+const lowerEmail = loginEmail.toLowerCase();
+// below will delete all whitespaces and the enter character
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+// do all of the above in one line
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(email === normalizedEmail);
+
+// replace parts of strings
+const priceGB = '288,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+// replace only the first occurance
+console.log(announcement.replace('door', 'gate'));
+// using regular expressions to target all occurances
+// g means global
+console.log(announcement.replace(/door/g, 'gate'));
+
+// methods that return booleans
+const plane2 = 'Airbus A320neo';
+console.log(plane2.includes('A320'));
+console.log(plane2.includes('Boeing'));
+console.log(plane2.startsWith('Air'));
+console.log(plane2.startsWith('A3'));
+
+if (plane2.startsWith('Airbus') && plane2.endsWith('neo')) {
+  console.log('Part of the new airbus family');
+}
+
+// practice exeercise
+// if baggage is to be allowed on the plane
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')){
+    console.log('You are not allowed onboard');
+  } else {
+    console.log('Welcome aboard!');
+  }
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
+*/

@@ -484,3 +484,69 @@ for (const [key, value] of firstBookMap) {
   if (typeof value === 'number') console.log(key);
 }
 */
+
+/*
+// Working with Strings - Part 1
+// 15.1
+console.log(books[0].ISBN[6]);
+console.log(books[0].ISBN[4]);
+console.log(books[0].ISBN[9]);
+console.log(books[0].ISBN[8]);
+// 15.2
+const quote =
+  'A computer once beat me at chess, but it was no match for me at kick boxing';
+console.log(quote.indexOf('chess'));
+// 15.3
+console.log(quote.slice(quote.lastIndexOf(' ') + 1));
+// 15.4
+const isContributor = function (authorName) {
+  return authorName.lastIndexOf('(Contributor)') !== -1;
+};
+*/
+
+/*
+// Working with Strings - Part 2
+const normalizeAuthorName = function (author) {
+  author = author.trim();
+  const firstName = author.slice(0, author.indexOf(' '));
+
+  let lastName = '';
+  if (author.indexOf(' ') === author.lastIndexOf(' ')) {
+    lastName = author.slice(author.indexOf(' ') + 1, author.length);
+  } else {
+    lastName = author.slice(author.indexOf(' ') + 1, author.lastIndexOf(' '));
+  }
+
+  const capitalizedFirstName =
+    firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
+  const capitalizedLastName =
+    lastName[0].toUpperCase() + lastName.slice(1).toLowerCase();
+
+  return capitalizedFirstName + ' ' + capitalizedLastName;
+};
+
+normalizeAuthorName('  JuliE sussMan (Contributor)');
+
+// 16.2
+const newBookTitle = books[1].title.replace('Programs', 'Software');
+
+// 16.3
+const logBookTheme = function (bookTitle) {
+  bookTitle = bookTitle.toLowerCase();
+  if (bookTitle.startsWith('computer')) {
+    console.log('This book is about computers');
+  } else if (
+    bookTitle.includes('algorithms') &&
+    bookTitle.includes('structures')
+  ) {
+    console.log('This book is about algorithms and data structures');
+  } else if (
+    bookTitle.endsWith('system') ||
+    (bookTitle.endsWith('systems') && !bookTitle.includes('operating'))
+  ) {
+    console.log(
+      'This book is about some systems, but definitely not about operating systems'
+    );
+  }
+};
+*/

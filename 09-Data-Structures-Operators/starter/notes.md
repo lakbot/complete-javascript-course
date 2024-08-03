@@ -61,4 +61,7 @@ Summary: Which data structure to use?
 - Collections of data is stored in data structures
 - Creating an array of objects is common in JS
 
+Working with Strings - Part 1
+- Strings are primitives and they are not supposed to have methods like arrays (objects)
+- When we call a method on a String, JS will auto-convert the String primitive to a String object with the same content. Then the methods are called on that object. This process is called boxing. When the operation is done, the object is converted back to a regular String primitive
 
